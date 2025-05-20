@@ -45,6 +45,22 @@ docker push Nawfel/my-image:tag → Pushes the image to Docker Hub.
 We store images in an online repository like Docker Hub to make them accessible from anywhere.
 It allows easy sharing, deployment, and collaboration across environments and teams.
 
+2-1 What are testcontainers?
+Testcontainers are a Java (and other languages) library that provides lightweight, throwaway Docker containers for automated tests
+
+2-2 For what purpose do we need to use secured variables ?
+Secured variables (or secrets) are used to store sensitive information like passwords, API keys, or tokens without exposing them in the code.
+They help prevent credential leaks and ensure safer automated workflows in CI/CD pipelines.
+
+2-3 Why did we put needs: build-and-test-backend on this job? Maybe try without this and you will see!
+We use needs: build-and-test-backend to ensure the Docker image is only built if the backend compiles and tests pass.
+Without it, the image could be built and pushed even if the application is broken.
+
+2-4 For what purpose do we need to push docker images?
+Pushing Docker images makes them available remotely for deployment or sharing across environments.
+It ensures consistent builds and allows others (or servers) to pull and run the exact same version of the app.
+
+
 
 
 

@@ -4,13 +4,13 @@ services:
   backend:
     build: 
       context: "backend_multistage/simpleapi"
-    depends_on:
+    depends_on: 
       - database
     networks:
       - app-network
 
   database:
-    image: postgres:17.2-alpine
+    image: Nawfel/firsttp
     environment:
       POSTGRES_DB: db
       POSTGRES_USER: usr

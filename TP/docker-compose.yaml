@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: "backend_multistage/simpleapi"
+    depends_on:
+      - database
+    networks:
+      - app-network
+
+  database:
+    image: postgres:17.2-alpine
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: usr
+      POSTGRES_PASSWORD: pwd
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  httpd:
+    build: http_server
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  pgdata:

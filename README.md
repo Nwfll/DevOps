@@ -60,9 +60,11 @@ Without it, the image could be built and pushed even if the application is broke
 Pushing Docker images makes them available remotely for deployment or sharing across environments.
 It ensures consistent builds and allows others (or servers) to pull and run the exact same version of the app.
 
-The link of my other repo github: https://github.com/Nwfll/tp-devops-1-docker
+## The link of my other repo github: https://github.com/Nwfll/tp-devops-1-docker
 
 
-
+Is it really safe to deploy automatically every new image on the hub ? explain. What can I do to make it more secure?
+No, it's not fully safe you might push untested or vulnerable images.
+To improve security, run tests beforehand, restrict pushes to main branches, and use secrets and image scanning.
 
 
